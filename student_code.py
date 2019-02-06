@@ -129,7 +129,6 @@ class KnowledgeBase(object):
         ####################################################
         # Implementation goes here
         # Not required for the extra credit assignment
-
     def kb_explain(self, fact_or_rule):
         """
         Explain where the fact or rule comes from
@@ -142,6 +141,27 @@ class KnowledgeBase(object):
         """
         ####################################################
         # Student code goes here
+        if isinstance(fact_or_rule, Fact):
+            if self.kb_ask(fact_or_rule) == []:
+                return "Fact is not in the KB"
+            else:
+                result = ""
+                indentation = "  "
+                afact = fact_or_rule
+                indentation = "  "
+                result = result + indentation + "fact: " + str(afact.statement)
+
+        if isinstance(fact_or_rule, Rule):
+            for element in self.rules:
+                if element == Rule:
+                    return 0
+            return "Rule is not in the KB"
+
+
+
+
+
+
 
 
 class InferenceEngine(object):
